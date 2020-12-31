@@ -1,0 +1,56 @@
+{% extends "berita/berita_base.html" %}
+{% load static %}
+{% block content %}
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs" data-aos="fade-up" data-aos-delay="300">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <ol>
+            <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
+            <li>Kegiatan</li>
+          </ol>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+  <section class="portfolio" data-aos="fade-up" data-aos-delay="150">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Kegiatan Kampoeng</h2>
+        <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+      </div>
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="150">
+      {% for post in news  %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-kegiatan">
+            <p><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>
+          </div> 
+          <img src="{{ post.image.url }}"class="img-fluid" alt="">
+        </div>
+      {% endfor %}
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Section -->
+
+  {% if post_list.has_other_pages %}
+    <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      {% if post_list.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ post_list.previous_page_number }}">Previous</a></li>
+      {% endif %}
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item"><a class="page-link" href="#">2</a></li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      {% if post_list.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ post_list.next_page_number }}">Next</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
+
+
+
+{% endblock content %}
+ 

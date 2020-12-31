@@ -1,0 +1,33 @@
+{% extends "berita/berita_base.html" %}
+{% load static %}
+{% load imagefit %}
+
+{% block content %}
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs" data-aos="fade-up" data-aos-delay="300">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <ol>
+            <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
+            <li><a href="{% url 'news' %}">Kegiatan</a></li>
+            <li>{{ detail.title }}</li>
+          </ol>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+    <section class="inner-page align-items-center" data-aos="fade-up" data-aos-delay="300">
+      <div class="container col-md-7 mx-auto">
+        {% if user.is_authenticated %}
+        <button type="button" class="btn btn-outline-secondary"><a href="{% url 'news-edit' slug=detail.slug %}">Edit {{detail.title}}</a></button>
+        <button type="button" class="btn btn-outline-secondary"><a href="{% url 'news-delete' slug=detail.slug %}">Hapus {{detail.title}}</a></button>
+        <br><br>
+        {% endif %}
+        <h1 class="mb-3">{{ detail.title }}</h1> 
+        <p>{{ detail.date_posted|date:"d M Y" }}</p>
+        <img class="img-center" src="{{ detail.image.url }}"><hr>
+        <p>{{ detail.article | safe  }}</p>
+      </div>
+    </section>
+{% endblock content %}
+ 

@@ -1,0 +1,44 @@
+{% extends "gallery/gallery_base.html" %}
+{% load static %}
+{% block content %}
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs" data-aos="fade-up" data-aos-delay="300">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <ol>
+            <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
+            <li><a href="{% url 'gallery' %}">Galeri</a></li>
+            <li>{{ gallery_detail.title }}</li>
+          </ol>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+
+<!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details" data-aos="fade-up">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="owl-carousel portfolio-details-carousel">
+              <img src="{{ gallery_detail.image.url }}" class="img-fluid" alt="">
+            </div>
+            <br>
+          </div>
+          <div class="col-lg-4">
+            {% if user.is_authenticated %}
+            <button type="button" class="btn btn-outline-secondary"><a href="{% url 'gallery-edit' slug=gallery_detail.slug %}">Edit {{gallery_detail.title}}</a></button>
+            <p></p>
+            <button type="button" class="btn btn-outline-secondary"><a href="{% url 'gallery-delete' slug=gallery_detail.slug %}">Hapus {{gallery_detail.title}}</a></button>
+            <br><br>
+            {% endif %}
+            <p>{{gallery_detail.caption}}</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+{% endblock content %}
+ 

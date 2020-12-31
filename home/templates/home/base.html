@@ -1,0 +1,185 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Kampoeng Cyber Yogyakarta</title>
+  <meta content="Kampoeng Cyber Yogyakarta" name="descriptison">
+  <meta content="Kampoeng Cyber Yogyakarta" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'home/img/logo_kc.png' %}" rel="icon" type="image/x-icon" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	<link rel="stylesheet" href="{% static "home/vendor/bootstrap/css/bootstrap.min.css" %}">
+	<link rel="stylesheet" href="{% static "home/vendor/icofont/icofont.min.css"%}">
+	<link rel="stylesheet" href="{% static "home/vendor/boxicons/css/boxicons.min.css" %}">
+	<link rel="stylesheet" href="{% static "home/vendor/owl.carousel/assets/owl.carousel.min.css" %}">
+	<link rel="stylesheet" href="{% static "home/vendor/venobox/venobox.css" %}">
+	<link rel="stylesheet" href="{% static "home/vendor/aos/aos.css"  %}">
+
+	<!-- Template Main CSS File -->
+	<link rel="stylesheet" href="{% static "home/css/style.css" %}">
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top ">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+        <i class="icofont-envelope"></i> <a href="mailto:contact@kampoengcyber.id">warga@kampoengcyber.id</a>
+        <i class="icofont-phone"></i> ‭+62 858 48798436‬
+        <i class="icofont-facebook"></i> <a href="https://www.facebook.com/ertetigaenam">Taman Erte Tiga Enam (Kampoeng Cyber)</a>
+      </div>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="https://www.facebook.com/ertetigaenam" class="facebook"><i class="icofont-facebook"></i></a>
+        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+        <a href="#" class="skype"><i class="icofont-skype"></i></a>
+        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <a href="{% url 'landingpage' %}" class="logo"><img src="{% static 'home/img/logo_kc.png'  %}" alt="" class="img-fluid"></a>
+
+      <h1 class="logo"><a href="{% url 'landingpage' %}" >Kampoeng Cyber</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="{% url 'news' %}" >Kegiatan Kampoeng</a></li>
+          <li><a href="{% url 'gallery' %}" >Galeri Kampoeng</a></li>
+          <li><a href="#about">Tentang Kampoeng Cyber</a></li>
+          <li><a href="#contact">Hubungi Kami</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+<main id="main">	
+	{% block content %}{% endblock %}
+</main>
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact" data-aos="fade-up" data-aos-delay="150">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Hubungi Kami</h2>
+          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+        </div>
+
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <i class="bx bx-map"></i>
+              <h3>Alamat Kami</h3>
+              <p>Taman KT I/434, Patehan, Kecamatan Kraton, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55133, Indonesia</p>
+            </div>
+          </div>
+
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-envelope"></i>
+              <h3>Email Kami</h3>
+               <a href="mailto:warga@kampoengcyber.id"><p>warga@kampoengcyber.id</p></a><br>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Hubungi Kami</h3>
+              <p>+62 858 48798436‬</p><br>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row" data-aos="fade-up">
+
+          <div class="col-lg-6 ">
+            <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.8151974853135!2d110.35638971455366!3d-7.809378679699164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5793d807e539%3A0xff9726502ddeee47!2sKampoeng%20Cyber%20Yogyakarta!5e0!3m2!1sen!2sus!4v1608731248953!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 460px;" allowfullscreen></iframe>
+          </div>
+
+          <div class="col-lg-6">
+
+             <form method="post" role="form" class="php-email-form">
+              <h4>Contact Form</h4>
+              {% csrf_token %}
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  {{ form.name }}
+                </div>
+                <div class="col-md-6 form-group">
+                  {{ form.email }}
+                </div>
+              </div>
+              <div class="form-group">
+                  {{ form.subject }}
+              </div>
+              <div class="form-group">
+                {{ form.message }}
+              </div>
+              <div class="text-center"><button type="submit" class="btn btn-primary">Kirim Pesan</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        <strong><span>Kampoeng Cyber Yogyakarta</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/day-multipurpose-html-template-for-free/ -->
+        Created by <a href="https://dimasutomo.com">dimasutomo.com</a> | Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+	<!-- Vendor JS Files -->
+	<script src="{% static "home/vendor/jquery/jquery.min.js" %}"></script>
+	<script src="{% static "home/vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+	<script src="{% static "home/vendor/jquery.easing/jquery.easing.min.js" %}"></script>
+	<script src="{% static "home/vendor/owl.carousel/owl.carousel.min.js" %}"></script>
+	<script src="{% static "home/vendor/isotope-layout/isotope.pkgd.min.js" %}"></script>
+	<script src="{% static "home/vendor/venobox/venobox.min.js" %}"></script>
+	<script src="{% static "home/vendor/aos/aos.js" %}"></script>
+  <!-- Template Main JS File -->
+	<script src="{% static "home/js/main.js" %}"></script>
+ 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+
+
+</body>
+</html>

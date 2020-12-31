@@ -1,0 +1,44 @@
+{% extends "gallery/gallery_base.html" %}
+{% load static %}
+{% block content %}
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs" data-aos="fade-up" data-aos-delay="300">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <ol>
+            <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
+            <li>Galeri</li>
+          </ol>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="galeri" class="portfolio" data-aos="fade-up" data-aos-delay="150">
+    <div class="container">
+      <div class="section-title">
+        <h2>Galeri Kampoeng</h2>
+        <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+      </div>
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="150">
+       {% for post in gallery %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <img src="{{ post.image.url }}" class="img-fluid">
+          <div class="portfolio-info">
+            <a href="{{ post.get_absolute_url }}"><p>{{post.title}}</p></a>
+            <a href="{{ post.image.url }}" data-gall="portfolioGallery" class="venobox preview-link" title="Card 2"><i class="bx bx-zoom-in"></i></a>
+            <a href="{{ post.get_absolute_url }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section><!-- End Portfolio Section -->
+
+
+
+
+
+{% endblock content %}
+ 

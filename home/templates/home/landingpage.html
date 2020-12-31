@@ -1,0 +1,138 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+<main id="main">  
+
+
+<!-- carousel -->
+  <section id="carousel" class="align-items-center" data-aos="fade-up" data-aos-delay="150">
+    <div class="carousel slide container position-relative" id="main-carousel" data-ride="carousel" data-aos-delay="500">
+      <ol class="carousel-indicators">
+        <li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#main-carousel" data-slide-to="1"></li>
+        <li data-target="#main-carousel" data-slide-to="2"></li>
+        <li data-target="#main-carousel" data-slide-to="3"></li>
+      </ol><!-- /.carousel-indicators -->
+      
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          {% for image in carousel %}
+          <img class="d-block img-fluid" src="{{ image.image1.url}}" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <p>{{image.caption_image_1}}</p>
+          {% endfor %}
+          </div>
+        </div>
+        <div class="carousel-item">
+          {% for image in carousel %}
+          <img class="d-block img-fluid" src="{{ image.image2.url}}" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <p>{{image.caption_image_2}}</p>
+          {% endfor %}
+          </div>
+        </div>
+        <div class="carousel-item">
+          {% for image in carousel %}
+          <img class="d-block img-fluid" src="{{ image.image3.url}}" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <p>{{image.caption_image_3}}</p>
+          {% endfor %}
+          </div>
+        </div>
+        <div class="carousel-item">
+          {% for image in carousel %}
+          <img class="d-block img-fluid" src="{{ image.image4.url}}" alt="">
+          <div class="carousel-caption d-none d-md-block">
+            <p>{{image.caption_image_4}}</p>
+          {% endfor %}
+          </div>
+        </div>
+      </div><!-- /.carousel-inner -->
+      
+      <a href="#main-carousel" class="carousel-control-prev" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="sr-only" aria-hidden="true">Prev</span>
+      </a>
+      <a href="#main-carousel" class="carousel-control-next" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="sr-only" aria-hidden="true">Next</span>
+      </a>
+    </div><!-- /.carousel -->
+  </div><!-- /.container -->
+</section>
+
+<main id="main">
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio" data-aos="fade-up" data-aos-delay="150">
+    <div class="container">
+
+      <div class="section-title">
+        <h2><a href="{% url 'news' %}" class="details-link" title="More Details">Kegiatan Kampoeng</a></h2>
+        <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+      </div>
+
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="150">
+       {% for post in news  %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <img src="{{ post.image.url }}"class="img-fluid" alt="">
+          <div class="portfolio-kegiatan">
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+          </div> 
+        </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="galeri" class="portfolio" data-aos="fade-up" data-aos-delay="150">
+    <div class="container">
+
+      <div class="section-title">
+        <h2><a href="{% url 'gallery' %}" class="details-link" title="More Details">Galeri Kampoeng</a></h2>
+        <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+      </div>
+
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="150">
+       {% for post in gallery %}
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <img src="{{ post.image.url }}" class="img-fluid" alt="">
+          <div class="portfolio-info">
+            <a href="{{ post.get_absolute_url }}"><p>{{post.title}}</p></a>
+            <a href="{{ post.image.url }}" data-gall="portfolioGallery" class="venobox preview-link" title="Card 2"><i class="bx bx-zoom-in"></i></a>
+            <a href="{{ post.get_absolute_url }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section><!-- End Portfolio Section -->
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about" data-aos="fade-up" data-aos-delay="150">
+      <div class="container">
+
+      <div class="section-title">
+        <h2>Tentang Kampoeng Cyber</a></h2>
+      </div>
+
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+          {% for description in about %}          
+            <img src="{{description.about_image.url}}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+
+            <h3>{{description.title_about}}</h3>
+            <p>{{description.about_desc}}</p>
+          {% endfor %} 
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+{% endblock %}

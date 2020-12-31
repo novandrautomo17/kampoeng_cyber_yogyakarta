@@ -1,0 +1,32 @@
+{% extends "berita/berita_base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- ======= Breadcrumbs Section ======= -->
+<section class="breadcrumbs" data-aos="fade-up" data-aos-delay="300">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <ol>
+        <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
+        <li>Edit Halaman</li>
+        <li></li>
+      </ol>
+    </div>
+  </div>
+</section><!-- End Breadcrumbs Section -->
+
+
+<!-- Default form contact -->
+<form class="text-left border border-light mb-10 p-5" method="POST" enctype="multipart/form-data">
+    <h3 class="col-md-9">Tambah Kegiatan</h3>
+    {% csrf_token %}
+    {# {{ form.media }} #}
+    <div class="form-row col-md-9">
+      <div class="form-group col-md-8 mb-2">
+        {# {{ form|crispy }} #}
+      </div>
+    </div>
+    <button type="submit" class="mb-2 btn btn-primary">Save</button>
+</form>
+<!-- Default form contact -->
+
+{% endblock content %}

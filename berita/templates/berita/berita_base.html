@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Kampoeng Cyber Yogkayarta | Kegiatan</title>
+
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'home/img/logo_kc.png' %}" rel="icon" type="image/x-icon" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{% static "home/vendor/bootstrap/css/bootstrap.min.css" %}">
+  <link rel="stylesheet" href="{% static "home/vendor/icofont/icofont.min.css"%}">
+  <link rel="stylesheet" href="{% static "home/vendor/boxicons/css/boxicons.min.css" %}">
+  <link rel="stylesheet" href="{% static "home/vendor/owl.carousel/assets/owl.carousel.min.css" %}">
+  <link rel="stylesheet" href="{% static "home/vendor/venobox/venobox.css" %}">
+  <link rel="stylesheet" href="{% static "home/vendor/aos/aos.css"  %}">
+
+  <!-- Template Main CSS File -->
+  <link rel="stylesheet" href="{% static "home/css/style.css" %}">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top ">
+    <div class="container d-flex">
+      <div class="contact-info mr-auto">
+        <i class="icofont-envelope"></i> <a href="mailto:contact@kampoengcyber.id">warga@kampoengcyber.id</a>
+        <i class="icofont-phone"></i> ‭+62 858 48798436‬
+        <i class="icofont-facebook"></i> <a href="https://www.facebook.com/ertetigaenam">Taman Erte Tiga Enam (Kampoeng Cyber)</a>
+      </div>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="https://www.facebook.com/ertetigaenam" class="facebook"><i class="icofont-facebook"></i></a>
+        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
+        <a href="#" class="skype"><i class="icofont-skype"></i></a>
+        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+
+      <a href="{% url 'landingpage' %}" class="logo"><img src="{% static 'home/img/logo_kc.png'  %}" alt="" class="img-fluid"></a>
+
+      <h1 class="logo"><a href="{% url 'landingpage' %}" >Kampoeng Cyber</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{% url 'landingpage' %}">Home</a></li>
+          <li><a href="{% url 'news' %}" >Kegiatan Kampoeng</a></li>
+          <li><a href="{% url 'gallery' %}" >Galeri Kampoeng</a></li>
+      {% if user.is_authenticated %}
+          <li><a href="{% url 'news-add' %}" >Tambah Kegiatan Kampoeng</a></li>
+      {% endif %}
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+
+
+  {% block content %}{% endblock %}
+
+
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Day</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+ 
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+
+
+
+  <!-- Vendor JS Files -->
+  <script src="{% static "home/vendor/jquery/jquery.min.js" %}"></script>
+  <script src="{% static "home/vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+  <script src="{% static "home/vendor/jquery.easing/jquery.easing.min.js" %}"></script>
+  <script src="{% static "home/vendor/owl.carousel/owl.carousel.min.js" %}"></script>
+  <script src="{% static "home/vendor/isotope-layout/isotope.pkgd.min.js" %}"></script>
+  <script src="{% static "home/vendor/venobox/venobox.min.js" %}"></script>
+  <script src="{% static "home/vendor/aos/aos.js" %}"></script>
+  <!-- Template Main JS File -->
+  <script src="{% static "home/js/main.js" %}"></script>
+  
+
+</body>
+</html>

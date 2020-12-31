@@ -1,0 +1,23 @@
+{% extends "berita/berita_base.html" %}
+{% block content %}
+
+<section class="breadcrumbs" data-aos="fade-up" data-aos-delay="300">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <ol>
+        <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
+        <li>Kegiatan</li>
+        <li>Hapus Kegiatan</li>
+      </ol>
+    </div>
+  </div>
+</section><!-- End Breadcrumbs Section -->
+
+<section class="col-md-8 inner-page align-items-center" data-aos="fade-up" data-aos-delay="300">
+  <form method="post">{% csrf_token %} 
+      <p>Yakin ingin menghapus?</p> 
+      <input type="submit" value="Confirm"> 
+  </form> 
+</section>
+
+{% endblock content %}
