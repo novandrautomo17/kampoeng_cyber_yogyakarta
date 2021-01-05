@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Calibri", sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #444444;
 }
 
@@ -23,7 +23,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Calibri", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -242,7 +242,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
   font-size: 18px;
   font-weight: 600;
-  font-family: "Calibri", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 /*.nav-menu > ul > li:hover, .nav-menu .active {

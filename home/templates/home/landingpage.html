@@ -19,7 +19,7 @@
           {% for image in carousel %}
           <img class="d-block img-fluid" src="{{ image.image1.url}}" alt="">
           <div class="carousel-caption d-none d-md-block">
-            <p>{{image.caption_image_1}}</p>
+            <p style='text-shadow: 2px 2px #191414;'> {{image.caption_image_1}}</p>
           {% endfor %}
           </div>
         </div>
@@ -27,7 +27,7 @@
           {% for image in carousel %}
           <img class="d-block img-fluid" src="{{ image.image2.url}}" alt="">
           <div class="carousel-caption d-none d-md-block">
-            <p>{{image.caption_image_2}}</p>
+            <p style='text-shadow: 2px 2px #191414;'>{{image.caption_image_2}}</p>
           {% endfor %}
           </div>
         </div>
@@ -35,7 +35,7 @@
           {% for image in carousel %}
           <img class="d-block img-fluid" src="{{ image.image3.url}}" alt="">
           <div class="carousel-caption d-none d-md-block">
-            <p>{{image.caption_image_3}}</p>
+            <p style='text-shadow: 2px 2px #191414;'>{{image.caption_image_3}}</p>
           {% endfor %}
           </div>
         </div>
@@ -43,7 +43,7 @@
           {% for image in carousel %}
           <img class="d-block img-fluid" src="{{ image.image4.url}}" alt="">
           <div class="carousel-caption d-none d-md-block">
-            <p>{{image.caption_image_4}}</p>
+            <p style='text-shadow: 2px 2px #191414;'>{{image.caption_image_4}}</p>
           {% endfor %}
           </div>
         </div>
@@ -127,7 +127,7 @@
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
 
             <h3>{{description.title_about}}</h3>
-            <p>{{description.about_desc}}</p>
+            <p class='text-justify'>{{description.about_desc}}</p>
           {% endfor %} 
           </div>
         </div>
