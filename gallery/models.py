@@ -8,7 +8,7 @@ from django.urls import reverse
 class Gallery(models.Model):
 	slug = models.SlugField(null=False, unique=True, verbose_name='URL')
 	title = models.CharField(max_length=200, blank=False, null=True, verbose_name='Judul')
-	image = models.ImageField(upload_to='uploads/gallery', null=True, blank=True)
+	image = models.ImageField(upload_to='uploads/gallery', null=True, blank=False)
 	caption = models.TextField(blank=False, null=True)
 	date_posted = models.DateTimeField(auto_now_add=False, auto_now=True)
 

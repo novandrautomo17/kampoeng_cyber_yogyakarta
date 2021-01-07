@@ -8,7 +8,7 @@ from django.urls import reverse #slug
 
 class News(models.Model):
 	slug = models.SlugField(null=False, unique=True, verbose_name='URL')
-	image = models.ImageField(upload_to='uploads/berita', null=True, blank=True)
+	image = models.ImageField(upload_to='uploads/berita', null=True, blank=False)
 	title = models.CharField(max_length=200, blank=False, null=True, verbose_name='Judul')
 	article = RichTextUploadingField(blank=True, null=True, verbose_name='Artikel')
 	date_posted = models.DateTimeField(auto_now_add=False, auto_now=True)

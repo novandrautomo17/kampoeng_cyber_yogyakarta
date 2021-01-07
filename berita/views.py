@@ -8,8 +8,8 @@ from .forms import NewFormNews, EditFormNews
 
 def news_list(request):
 		news = News.objects.all().order_by('-date_posted')
-		paginator = Paginator(news, 9)  # 3 posts in each page
-		page = request.GET.get('page')
+		page = request.GET.get('page', 1)
+		paginator = Paginator(news, 6)  # 3 posts in each page
 		try:
 				newslist = paginator.page(page)
 		except PageNotAnInteger:
@@ -18,7 +18,7 @@ def news_list(request):
 		except EmptyPage:
 				# If page is out of range deliver last page of results
 				newslist = paginator.page(paginator.num_pages)
-		return render(request, 'berita/berita_list.html',{'page': page,'newslist': newslist, 'news':news})
+		return render(request, 'berita/berita_list.html',{'newslist': newslist})
 
 def news_detail(request, slug): 
 	detail = News.objects.get(slug=slug) 

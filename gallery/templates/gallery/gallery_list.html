@@ -22,7 +22,7 @@
         <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
       </div>
       <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="150">
-       {% for post in gallery %}
+       {% for post in gallerylist %}
         <div class="col-lg-4 col-md-6 portfolio-item filter-card">
           <img src="{{ post.image.url }}" class="img-fluid">
           <div class="portfolio-info">
@@ -37,6 +37,18 @@
   </section><!-- End Portfolio Section -->
 
 
+{% if gallerylist.has_other_pages %}
+    <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      {% if gallerylist.has_previous %}
+      <li><a class="btn btn-secondary btn-sm" href="?page={{ gallerylist.previous_page_number }}">Sebelumnya</a></li>
+      {% endif %}
+      {% if gallerylist.has_next %}
+      <li><a class="btn btn-secondary btn-sm" href="?page={{ gallerylist.next_page_number }}">Selanjutnya</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+{% endif %}
 
 
 

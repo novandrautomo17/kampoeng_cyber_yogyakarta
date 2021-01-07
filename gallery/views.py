@@ -3,12 +3,24 @@ from django.conf import settings
 from django.utils import timezone
 import datetime
 from .models import Gallery
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .forms import NewFormGallery, EditFormGallery
 
 
 def gallery_list(request):
 	gallery = Gallery.objects.all().order_by('-date_posted')
-	return render(request, 'gallery/gallery_list.html', {'gallery':gallery})
+	page = request.GET.get('page', 1)
+	
+	paginator = Paginator(gallery, 6)  # 3 posts in each page
+	try:
+			gallerylist = paginator.page(page)
+	except PageNotAnInteger:
+					# If page is not an integer deliver the first page
+			gallerylist = paginator.page(1)
+	except EmptyPage:
+			# If page is out of range deliver last page of results
+			gallerylist = paginator.page(paginator.num_pages)
+	return render(request, 'gallery/gallery_list.html',{'gallerylist': gallerylist})
 
 def gallery_detail(request, slug): 
 	gallery_detail = Gallery.objects.get(slug = slug) 
