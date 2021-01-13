@@ -64,34 +64,11 @@
 <main id="main">
 
   <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio" data-aos="fade-up" data-aos-delay="150">
-    <div class="container">
-
-      <div class="section-title">
-        <h2><a href="{% url 'news' %}" class="details-link" title="More Details">Kegiatan Kampoeng</a></h2>
-        <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
-      </div>
-
-      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="150">
-       {% for post in news  %}
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <img src="{{ post.image.url }}"class="img-fluid" alt="">
-          <div class="portfolio-kegiatan">
-            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-          </div> 
-        </div>
-        {% endfor %}
-      </div>
-
-    </div>
-  </section><!-- End Portfolio Section -->
-
-  <!-- ======= Portfolio Section ======= -->
   <section id="galeri" class="portfolio" data-aos="fade-up" data-aos-delay="150">
     <div class="container">
 
       <div class="section-title">
-        <h2><a href="{% url 'gallery' %}" class="details-link" title="More Details">Galeri Kampoeng</a></h2>
+        <h2><a href="{% url 'gallery' %}" class="details-link" title="More Details">Kegiatan Kami</a></h2>
         <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
       </div>
 
@@ -110,29 +87,75 @@
     </div>
   </section><!-- End Portfolio Section -->
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about" data-aos="fade-up" data-aos-delay="150">
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact" data-aos="fade-up" data-aos-delay="150">
       <div class="container">
 
-      <div class="section-title">
-        <h2>Tentang Kampoeng Cyber</a></h2>
-      </div>
+        <div class="section-title">
+          <h2>Hubungi Kami</h2>
+          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+        </div>
 
-
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
-          {% for description in about %}          
-            <img src="{{description.about_image.url}}" class="img-fluid" alt="">
+        <div class="row" data-aos="fade-up">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <i class="bx bx-map"></i>
+              <h3>Alamat Kami</h3>
+              <p>Taman KT I/434, Patehan, Kecamatan Kraton, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55133, Indonesia</p>
+            </div>
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
 
-            <h3>{{description.title_about}}</h3>
-            <p class='text-justify'>{{description.about_desc}}</p>
-          {% endfor %} 
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-envelope"></i>
+              <h3>Email Kami</h3>
+               <a href="mailto:warga@kampoengcyber.id"><p>warga@kampoengcyber.id</p></a><br>
+            </div>
           </div>
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-phone-call"></i>
+              <h3>Hubungi Kami</h3>
+              <a href='https://api.whatsapp.com/send/?phone=%2B6281328792405&text&app_absent=0'><p>+62 813-2879-2405</p></a><br>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row" data-aos="fade-up">
+
+          <div class="col-lg-6 ">
+            <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.8151974853135!2d110.35638971455366!3d-7.809378679699164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5793d807e539%3A0xff9726502ddeee47!2sKampoeng%20Cyber%20Yogyakarta!5e0!3m2!1sen!2sus!4v1608731248953!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 460px;" allowfullscreen></iframe>
+          </div>
+
+          <div class="col-lg-6">
+
+             <form method="post" role="form" class="php-email-form">
+              <h4>Contact Form</h4>
+              {% csrf_token %}
+              <div class="form-row">
+                <div class="col-md-6 form-group">
+                  {{ form.name }}
+                </div>
+                <div class="col-md-6 form-group">
+                  {{ form.email }}
+                </div>
+              </div>
+              <div class="form-group">
+                  {{ form.subject }}
+              </div>
+              <div class="form-group">
+                {{ form.message }}
+              </div>
+              <div class="text-center"><button type="submit" class="btn btn-primary">Kirim Pesan</button></div>
+            </form>
+          </div>
+
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section><!-- End Contact Section --> 
 
 {% endblock %}

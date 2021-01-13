@@ -1,0 +1,39 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block content %}
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="breadcrumbs" data-aos="fade-up" data-aos-delay="300">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+          <ol>
+            <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
+            <li>Profil</li>
+          </ol>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs Section -->
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about" data-aos="fade-up" data-aos-delay="150">
+      <div class="container">
+
+      <div class="section-title">
+        <h2>Tentang Kampoeng Cyber</a></h2>
+      </div>
+
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
+          {% for description in about %}          
+            <img src="{{description.about_image.url}}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
+
+            <h3>{{description.title_about}}</h3>
+            <p class='text-justify'>{{description.about_desc}}</p>
+          {% endfor %} 
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+{% endblock %}

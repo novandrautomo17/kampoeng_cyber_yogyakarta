@@ -65,92 +65,31 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="{% url 'news' %}" >Kegiatan Kampoeng</a></li>
-          <li><a href="{% url 'gallery' %}" >Galeri Kampoeng</a></li>
-          <li><a href="#about">Tentang Kampoeng Cyber</a></li>
-          <li><a href="#contact">Hubungi Kami</a></li>
+          <li class="drop-down"><a href="">Tentang Kami</a>
+            <ul>
+              <li><a href="{% url 'history' %}">Sejarah</a></li>
+              <li><a href="{% url 'profile' %}">Profil</a></li>
+            </ul>
+          </li>
+          <li><a href="{% url 'gallery' %}" >Kegiatan Kami</a></li>
+          <li class="drop-down"><a href="">Berita Kami</a>
+            <ul>
+              <li><a href="#">Berita</a></li>
+              <li><a href="#">Publikasi</a></li>
+            </ul>
+          </li>
+          <li><a href="{% url 'landingpage' %}#contact">Hubungi Kami</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
     </div>
   </header><!-- End Header -->
 
+
+
 <main id="main">	
 	{% block content %}{% endblock %}
 </main>
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact" data-aos="fade-up" data-aos-delay="150">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Hubungi Kami</h2>
-          <p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
-        </div>
-
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-6">
-            <div class="info-box mb-4">
-              <i class="bx bx-map"></i>
-              <h3>Alamat Kami</h3>
-              <p>Taman KT I/434, Patehan, Kecamatan Kraton, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55133, Indonesia</p>
-            </div>
-          </div>
-
-
-          <div class="col-lg-3 col-md-6">
-            <div class="info-box  mb-4">
-              <i class="bx bx-envelope"></i>
-              <h3>Email Kami</h3>
-               <a href="mailto:warga@kampoengcyber.id"><p>warga@kampoengcyber.id</p></a><br>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="info-box  mb-4">
-              <i class="bx bx-phone-call"></i>
-              <h3>Hubungi Kami</h3>
-              <a href='https://api.whatsapp.com/send/?phone=%2B6281328792405&text&app_absent=0'><p>+62 813-2879-2405</p></a><br>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="row" data-aos="fade-up">
-
-          <div class="col-lg-6 ">
-            <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.8151974853135!2d110.35638971455366!3d-7.809378679699164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5793d807e539%3A0xff9726502ddeee47!2sKampoeng%20Cyber%20Yogyakarta!5e0!3m2!1sen!2sus!4v1608731248953!5m2!1sen!2sus" frameborder="0" style="border:0; width: 100%; height: 460px;" allowfullscreen></iframe>
-          </div>
-
-          <div class="col-lg-6">
-
-             <form method="post" role="form" class="php-email-form">
-              <h4>Contact Form</h4>
-              {% csrf_token %}
-              <div class="form-row">
-                <div class="col-md-6 form-group">
-                  {{ form.name }}
-                </div>
-                <div class="col-md-6 form-group">
-                  {{ form.email }}
-                </div>
-              </div>
-              <div class="form-group">
-                  {{ form.subject }}
-              </div>
-              <div class="form-group">
-                {{ form.message }}
-              </div>
-              <div class="text-center"><button type="submit" class="btn btn-primary">Kirim Pesan</button></div>
-            </form>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Contact Section -->
-
-  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

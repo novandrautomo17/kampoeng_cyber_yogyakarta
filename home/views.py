@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect 
 from django.conf import settings
-from .models import Carousel, About
+from .models import Carousel, About, History
 from berita.models import News
 from gallery.models import Gallery
 from .forms import ContactForm
@@ -35,3 +35,12 @@ def landingpage(request):
 				return HttpResponse('Invalid header found.')
 			return redirect('landingpage')
 	return render(request, 'home/landingpage.html', {'carousel':carousel, 'about':about, 'news':news, 'gallery':gallery ,'form': form})
+
+
+def profile(request):
+	about = About.objects.all()
+	return render(request, 'home/profile.html', {'about':about})
+
+def history(request):
+	history = History.objects.all()
+	return render(request, 'home/history.html', {'history':history})
