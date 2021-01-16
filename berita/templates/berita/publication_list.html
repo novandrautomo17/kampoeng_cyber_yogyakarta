@@ -7,22 +7,21 @@
         <div class="d-flex justify-content-between align-items-center">
           <ol>
             <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
-            <li>Berita</li>
+            <li>Publikasi</li>
           </ol>
         </div>
       </div>
     </section><!-- End Breadcrumbs Section -->
 
-
   <section class="inner-page align-items-center" data-aos="fade-up" data-aos-delay="300">
     <div class="container col-md-7 mx-auto">
-
+          
       <div class="section-title">
-        <h2>Berita Kampoeng</h2>
+        <h2>Publikasi Kampoeng</h2>
       </div>
-        {% for post in newslist  %}  
+        {% for post in publication_list %}  
         <div class="card-body">
-          <h2 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+          <h3 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
           <p><b>Yogyakarta, {{ post.date_posted|date:"d M Y" }}</b></p>
           <p class="card-text">{{ post.article | safe | truncatechars:280 }}</p>
           <a href="{{ post.get_absolute_url }}" class="btn btn-secondary">Baca lebih lanjut &rarr;</a>
@@ -32,17 +31,19 @@
     </div>
   </section><!-- End Portfolio Section -->
 
-  {% if newslist.has_other_pages %}
+
+
+  {% if publication_list.has_other_pages %}
     <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
-      {% if newslist.has_previous %}
-      <li class="page-item"><a class="page-link" href="?page={{ newslist.previous_page_number }}">Previous</a></li>
+      {% if publication_list.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ publication_list.previous_page_number }}">Previous</a></li>
       {% endif %}
       <li class="page-item"><a class="page-link" href="#">1</a></li>
       <li class="page-item"><a class="page-link" href="#">2</a></li>
       <li class="page-item"><a class="page-link" href="#">3</a></li>
-      {% if newslist.has_next %}
-      <li class="page-item"><a class="page-link" href="?page={{ newslist.next_page_number }}">Next</a></li>
+      {% if publication_list.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ publication_list.next_page_number }}">Next</a></li>
       {% endif %}
     </ul>
   </nav>
@@ -50,3 +51,8 @@
 
 {% endblock content %}
  
+
+
+
+
+

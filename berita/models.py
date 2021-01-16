@@ -15,7 +15,7 @@ class News(models.Model):
 	# tags = TaggableManager(blank=True, verbose_name='Kategori')
 
 	class Meta:
-		verbose_name_plural = "Kegiatan"
+		verbose_name_plural = "Berita"
 
 	def __str__(self):
 		return f"{self.title}, {self.article}"
@@ -25,3 +25,23 @@ class News(models.Model):
 
 	def get_edit_url(self):
 			return reverse('news-edit', kwargs={'slug': self.slug}) #get slug url 
+
+class Publication(models.Model):
+	slug = models.SlugField(null=False, unique=True, verbose_name='URL')
+	image = models.ImageField(upload_to='uploads/berita', null=True, blank=False)
+	title = models.CharField(max_length=200, blank=False, null=True, verbose_name='Judul')
+	article = RichTextUploadingField(blank=True, null=True, verbose_name='Artikel')
+	date_posted = models.DateTimeField(auto_now_add=False, auto_now=True)
+	# tags = TaggableManager(blank=True, verbose_name='Kategori')
+
+	class Meta:
+		verbose_name_plural = "Publikasi"
+
+	def __str__(self):
+		return f"{self.title}, {self.article}"
+
+	def get_absolute_url(self):
+			return reverse('publication-detail', kwargs={'slug': self.slug}) #get slug url 
+
+	# def get_edit_url(self):
+	# 		return reverse('news-edit', kwargs={'slug': self.slug}) #get slug url 

@@ -31,6 +31,7 @@
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -60,11 +61,12 @@
 
       <a href="{% url 'landingpage' %}" class="logo"><img src="{% static 'home/img/logo_kc.png'  %}" alt="" class="img-fluid"></a>
 
-      <h1 class="logo"><a href="{% url 'landingpage' %}" >Kampoeng Cyber</a></h1>
+      {# <h1 class="logo"><a href="{% url 'landingpage' %}" >Kampoeng Cyber</a></h1> #}
       <!-- Uncomment below if you prefer to use an image logo -->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
+          <li><a href="{% url 'landingpage' %}">Home</a></li>
           <li class="drop-down"><a href="">Tentang Kami</a>
             <ul>
               <li><a href="{% url 'history' %}">Sejarah</a></li>
@@ -74,8 +76,8 @@
           <li><a href="{% url 'gallery' %}" >Kegiatan Kami</a></li>
           <li class="drop-down"><a href="">Berita Kami</a>
             <ul>
-              <li><a href="#">Berita</a></li>
-              <li><a href="#">Publikasi</a></li>
+              <li><a href="{% url 'news' %}">Berita</a></li>
+              <li><a href="{% url 'publication' %}">Publikasi</a></li>
             </ul>
           </li>
           <li><a href="{% url 'landingpage' %}#contact">Hubungi Kami</a></li>
