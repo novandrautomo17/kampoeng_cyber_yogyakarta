@@ -4,11 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>{% block title %} {% endblock %}</title>  
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Kampoeng Cyber Yogyakarta</title>
-  <meta content="Kampoeng Cyber Yogyakarta" name="descriptison">
+  <meta content="Kampoeng Cyber Yogyakarta" name="description">
   <meta content="Kampoeng Cyber Yogyakarta" name="keywords">
 
   <!-- Favicons -->
@@ -58,12 +57,10 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
-
+    
+    <div class="logo mr-auto">
       <a href="{% url 'landingpage' %}" class="logo"><img src="{% static 'home/img/logo_kc.png'  %}" alt="" class="img-fluid"></a>
-
-      {# <h1 class="logo"><a href="{% url 'landingpage' %}" >Kampoeng Cyber</a></h1> #}
-      <!-- Uncomment below if you prefer to use an image logo -->
-
+    </div>
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li><a href="{% url 'landingpage' %}">Home</a></li>
@@ -97,7 +94,7 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        <strong><span>Kampoeng Cyber Yogyakarta</span></strong>. All Rights Reserved
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> <strong>Kampoeng Cyber Yogyakarta</strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
@@ -120,7 +117,5 @@
   <!-- Template Main JS File -->
 	<script src="{% static "home/js/main.js" %}"></script>
  	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
-
-
 </body>
 </html>
