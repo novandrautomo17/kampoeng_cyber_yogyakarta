@@ -44,7 +44,7 @@
         <i class="icofont-phone"></i> ‭<a href='https://api.whatsapp.com/send/?phone=%2B6281328792405&text&app_absent=0'>+62 813-2879-2405</a>
         <i class="icofont-facebook"></i> <a href="https://www.facebook.com/ertetigaenam">Taman Erte Tiga Enam (Kampoeng Cyber)</a>
         {% if user.is_authenticated %}
-        <i class="icofont-ui-user"></i> <a href="">Login sebagai: {{ request.user }} | <a href="{% url 'logout' %}">Klik untuk Logout</a>
+        <i class="icofont-user"></i>Saat ini login sebagai: {{ request.user }} | <a href="{% url 'logout' %}">Klik untuk Logout</a>
         {% endif %} 
       </div>
     </div>

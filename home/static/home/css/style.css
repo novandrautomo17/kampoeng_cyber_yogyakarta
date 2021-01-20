@@ -147,6 +147,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 15px;
 }
 
+#topbar .contact-info i.icofont-user {
+  margin-left: 15px;
+}
+
+
 #topbar .social-links a {
   color: white;
   padding-left: 15px;
