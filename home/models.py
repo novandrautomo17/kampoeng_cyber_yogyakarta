@@ -47,7 +47,6 @@ class About(models.Model):
 	def __str__(self):
 		return f"Profile Kampoeng Cyber"
 
-
 #Sejarah
 class History(models.Model):
 	article = RichTextUploadingField(blank=True, null=True, verbose_name='Artikel')

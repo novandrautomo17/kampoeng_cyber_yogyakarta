@@ -43,13 +43,9 @@
         <i class="icofont-envelope"></i> <a href="mailto:contact@kampoengcyber.id">warga@kampoengcyber.id</a>
         <i class="icofont-phone"></i> ‭<a href='https://api.whatsapp.com/send/?phone=%2B6281328792405&text&app_absent=0'>+62 813-2879-2405</a>
         <i class="icofont-facebook"></i> <a href="https://www.facebook.com/ertetigaenam">Taman Erte Tiga Enam (Kampoeng Cyber)</a>
-      </div>
-      <div class="social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-        <a href="https://www.facebook.com/ertetigaenam" class="facebook"><i class="icofont-facebook"></i></a>
-        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="skype"><i class="icofont-skype"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+        {% if user.is_authenticated %}
+        <i class="icofont-ui-user"></i> <a href="">Login sebagai: {{ request.user }} | <a href="{% url 'logout' %}">Klik untuk Logout</a>
+        {% endif %} 
       </div>
     </div>
   </div>
