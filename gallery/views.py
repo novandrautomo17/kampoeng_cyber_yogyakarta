@@ -35,7 +35,7 @@ def gallery_add(request):
 			return redirect('gallery')
 	else:
 		form = NewFormGallery()
-	return render(request, 'home/forms_gallery.html', {'form': form})
+	return render(request, 'gallery/forms_gallery.html', {'form': form})
 
 def gallery_edit(request, slug):
 	gallery = get_object_or_404(Gallery, slug=slug)
@@ -48,7 +48,7 @@ def gallery_edit(request, slug):
 			return redirect('gallery')
 	else:
 		form = EditFormGallery(instance=gallery)
-	return render(request, 'home/forms_gallery.html', {'form': form})
+	return render(request, 'gallery/forms_gallery.html', {'form': form})
 
 def gallery_delete(request, slug): 
 		context ={} 

@@ -15,6 +15,11 @@
             <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
             <li>Kegiatan</li>
           </ol>
+          {% if user.is_authenticated %}
+          <ol>
+            <li><a href="{% url 'gallery-add' %}">Tambah kegiatan</a></li>
+          </ol>
+          {% endif %}          
         </div>
       </div>
     </section><!-- End Breadcrumbs Section -->

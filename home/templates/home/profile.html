@@ -12,8 +12,13 @@
         <div class="d-flex justify-content-between align-items-center">
           <ol>
             <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
-            <li>Profil</li>
+            <li>Profile</li>
           </ol>
+          <ol>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'about-edit' pk=1 %}">Edit Profile</a></li>
+          </ol>
+          {% endif %}          
         </div>
       </div>
     </section><!-- End Breadcrumbs Section -->
@@ -24,8 +29,6 @@
       <div class="section-title">
         <h2>Tentang Kampoeng Cyber</a></h2>
       </div>
-
-
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left">
           {% for description in about %}          

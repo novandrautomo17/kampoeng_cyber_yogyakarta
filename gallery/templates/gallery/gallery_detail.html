@@ -16,6 +16,12 @@
             <li><a href="{% url 'gallery' %}">Kegiatan</a></li>
             <li>{{ gallery_detail.title }}</li>
           </ol>
+          {% if user.is_authenticated %}
+          <ol>
+            <li><a href="{% url 'gallery-edit' slug=gallery_detail.slug %}">Edit kegiatan</a></li>
+            <li><a href="{% url 'gallery-delete' slug=gallery_detail.slug %}">Hapus kegiatan</a></li>
+          </ol>
+          {% endif %}          
         </div>
       </div>
     </section><!-- End Breadcrumbs Section -->
@@ -32,15 +38,8 @@
             <br>
           </div>
           <div class="col-lg-4">
-            {% if user.is_authenticated %}
-            <button type="button" class="btn btn-outline-secondary"><a href="{% url 'gallery-edit' slug=gallery_detail.slug %}">Edit {{gallery_detail.title}}</a></button>
-            <p></p>
-            <button type="button" class="btn btn-outline-secondary"><a href="{% url 'gallery-delete' slug=gallery_detail.slug %}">Hapus {{gallery_detail.title}}</a></button>
-            <br><br>
-            {% endif %}
             <p>{{gallery_detail.caption}}</p>
           </div>
-
         </div>
 
       </div>

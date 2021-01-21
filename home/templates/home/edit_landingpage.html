@@ -7,8 +7,7 @@
     <div class="d-flex justify-content-between align-items-center">
       <ol>
         <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
-        <li>Edit Carousel</li>
-        <li></li>
+        <li>Edit Halaman</li>
       </ol>
     </div>
   </div>
@@ -25,11 +24,11 @@
                 <li class="list-group-item"><a href="{% url 'about-edit' pk=2 %}">Edit profile</a></li>
                 <li class="list-group-item"><a href="{% url 'history-edit' pk=1 %}">Edit Sejarah</a></li>
                 <li class="list-group-item"><a href="{% url 'news-add' %}">Tambah Berita</a></li>
+                <li class="list-group-item"><a href="{% url 'gallery-add' %}">Tambah Kegiatan</a></li>
               </ul>
             </form>
           </div>
       </div>
     </section><!-- End Contact Section -->
-
 {% endblock content %}
 
