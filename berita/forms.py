@@ -12,7 +12,7 @@ class NewFormNews(forms.ModelForm):
 				widgets = {
 					'slug': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'URL', 'id':"name"}),
 					'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Judul', 'id':"subject"}),
-					'article': forms.Textarea(attrs={'class': 'form-control', 'placeholder':'Konten', 'rows':'9'}),
+					'article': forms.Textarea(attrs={'class': 'form-control', 'placeholder':'Konten', 'rows':'20'}),
 				}
 
 
@@ -24,5 +24,5 @@ class EditFormNews(forms.ModelForm):
 				widgets = {
 					'slug': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'URL', 'id':"name"}),
 					'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Judul', 'id':"subject"}),
-					'article': forms.Textarea(attrs={'class': 'form-control', 'placeholder':'Konten', 'rows':'9'}),
+					'article': forms.Textarea(attrs={'class': 'form-control', 'placeholder':'Konten', 'rows':'20'}),
 				}

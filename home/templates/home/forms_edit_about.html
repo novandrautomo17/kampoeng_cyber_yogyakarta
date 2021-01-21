@@ -1,0 +1,39 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- ======= Breadcrumbs Section ======= -->
+<section class="breadcrumbs" data-aos="fade-up" data-aos-delay="300">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <ol>
+        <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
+        <li>Edit Profile</li>
+        <li></li>
+      </ol>
+    </div>
+  </div>
+</section><!-- End Breadcrumbs Section -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact align-items-center">
+      <div class="container" data-aos="fade-up">
+          <div class=" col-md-8 mx-auto">
+             <form method="post" role="form" class="php-email-form" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class=" form-group">
+                Foto: {{ form.about_image }}
+              </div>
+              <div class=" form-group">
+                {{ form.title_about }}
+              </div>
+              <div class=" form-group">
+                {{ form.about_desc }}
+              </div>
+              <div class="text-center"><button type="submit" class="btn btn-primary">Save</button></div>
+            </form>
+          </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+{% endblock content %}

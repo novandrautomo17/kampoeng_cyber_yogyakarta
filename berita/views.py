@@ -33,7 +33,7 @@ def add_news(request):
 			return redirect('news')
 	else:
 		form = NewFormNews()
-	return render(request, 'home/forms.html', {'form': form})
+	return render(request, 'berita/forms.html', {'form': form})
 
 #eng: edit an item
 def news_edit(request, slug):
@@ -46,7 +46,7 @@ def news_edit(request, slug):
 			return redirect('news')
 	else:
 		form = EditFormNews(instance=news)
-	return render(request, 'home/forms.html', {'form': form})
+	return render(request, 'berita/forms.html', {'form': form})
 
 # delete view for details 
 def news_delete(request, slug): 

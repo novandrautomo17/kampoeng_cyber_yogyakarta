@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect 
+from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from .models import Carousel, About, History
 from berita.models import News
 from gallery.models import Gallery
-from .forms import ContactForm
+from .forms import ContactForm, CarouselForm, AboutForm, HistoryForm
 from django.core.mail import EmailMessage, BadHeaderError #check email badheader on the contactform
 
 def landingpage(request):
@@ -37,10 +37,50 @@ def landingpage(request):
 	return render(request, 'home/landingpage.html', {'carousel':carousel, 'about':about, 'news':news, 'gallery':gallery ,'form': form})
 
 
+def edit_landingpage(request):
+	return render(request, 'home/edit_landingpage.html')
+
+#eng: edit an item
+def edit_carousel(request, pk):
+	carousel = get_object_or_404(Carousel, pk=pk)
+	if request.method == "POST":
+		form = CarouselForm(request.POST, request.FILES, instance=carousel)
+		if form.is_valid():
+			carousel.save()
+			image = form.instance
+			return redirect('landingpage')
+	else:
+		form = CarouselForm(instance=carousel)
+	return render(request, 'home/forms_edit_carousel.html', {'form': form})
+
 def profile(request):
 	about = About.objects.all()
 	return render(request, 'home/profile.html', {'about':about})
 
+def edit_about(request, pk):
+	about = get_object_or_404(About, pk=pk)
+	if request.method == "POST":
+		form = AboutForm(request.POST, request.FILES, instance=about)
+		if form.is_valid():
+			about.save()
+			image = form.instance
+			return redirect('profile')
+	else:
+		form = AboutForm(instance=about)
+	return render(request, 'home/forms_edit_about.html', {'form': form})
+
 def history(request):
 	history = History.objects.all()
 	return render(request, 'home/history.html', {'history':history})
+
+def edit_history(request, pk):
+	history = get_object_or_404(History, pk=pk)
+	if request.method == "POST":
+		form = HistoryForm(request.POST, request.FILES, instance=history)
+		if form.is_valid():
+			history.save()
+			image = form.instance
+			return redirect('history')
+	else:
+		form = HistoryForm(instance=history)
+	return render(request, 'home/forms_edit_history.html', {'form': form})

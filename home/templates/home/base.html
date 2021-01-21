@@ -74,6 +74,9 @@
             </ul>
           </li>
           <li><a href="{% url 'landingpage' %}#contact">Hubungi Kami</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'edit-landingpage' %}">Edit Halaman</a></li>
+        {% endif %} 
         </ul>
       </nav><!-- .nav-menu -->
 

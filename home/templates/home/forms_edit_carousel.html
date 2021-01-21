@@ -1,4 +1,4 @@
-{% extends "berita/berita_base.html" %}
+{% extends "home/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
 <!-- ======= Breadcrumbs Section ======= -->
@@ -7,8 +7,8 @@
     <div class="d-flex justify-content-between align-items-center">
       <ol>
         <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
-        <li>Kegiatan</li>
-        <li>Tambah Kegiatan</li>
+        <li>Edit Carousel</li>
+        <li></li>
       </ol>
     </div>
   </div>
@@ -21,26 +21,41 @@
           <div class=" col-md-8 mx-auto">
              <form method="post" role="form" class="php-email-form" enctype="multipart/form-data">
               {% csrf_token %}
-              {{ form.media }}
-              <div class="form-row">
-                <div class="col-md-6 mb-0 form-group">
-                  {{ form.slug }}
-                </div>
-                <div class="col-md-6 form-group">
-                  {{ form.title }}
-                </div>
+              <p>Foto slide 1</p>
+              <div class=" form-group">
+                {{ form.image1 }}
+              </div>
+              <div class=" form-group">
+                {{ form.caption_image_1 }}
+              </div><hr />
+
+              <p>Foto slide 2</p>
+              <div class=" form-group">
+                {{ form.image2 }}
+              </div>
+              <div class=" form-group">
+                {{ form.caption_image_2 }}
+              </div><hr />
+
+              <p>Foto slide 3</p>
+              <div class="form-group">
+                {{ form.image3 }}
               </div>
               <div class="form-group">
-                  Image: {{ form.image }}
+                {{ form.caption_image_3 }}
+              </div><hr />
+
+              <p>Foto slide 4</p>
+              <div class="form-group">
+                {{ form.image4 }}
               </div>
               <div class="form-group">
-                {{ form.article }}
+                {{ form.caption_image_4 }}
               </div>
               <div class="text-center"><button type="submit" class="btn btn-primary">Save</button></div>
             </form>
           </div>
       </div>
     </section><!-- End Contact Section -->
+
 {% endblock content %}
-
-
