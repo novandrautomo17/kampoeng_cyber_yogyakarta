@@ -43,5 +43,5 @@ class Publication(models.Model):
 	def get_absolute_url(self):
 			return reverse('publication-detail', kwargs={'slug': self.slug}) #get slug url 
 
-	# def get_edit_url(self):
-	# 		return reverse('news-edit', kwargs={'slug': self.slug}) #get slug url 
+	def get_edit_url(self):
+			return reverse('publication-edit', kwargs={'slug': self.slug}) #get slug url 

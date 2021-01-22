@@ -4,7 +4,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.utils import timezone
 import datetime
 from .models import News, Publication
-from .forms import NewFormNews, EditFormNews
+from .forms import NewFormNews, EditFormNews, NewFormPublication, EditFormPublication
 
 def news_list(request):
 		news = News.objects.all().order_by('-date_posted')
@@ -74,3 +74,36 @@ def publication_list(request):
 def publication_detail(request, slug): 
 	detail = Publication.objects.get(slug=slug) 
 	return render(request, 'berita/publication_detail.html', {'detail':detail}) 
+
+def add_publication(request):
+	if request.method == "POST":
+		form = NewFormPublication(request.POST, request.FILES)
+		if form.is_valid():
+			form.save()
+			image = form.instance
+			return redirect('publication_list')
+	else:
+		form = NewFormPublication()
+	return render(request, 'berita/forms.html', {'form': form})
+
+def publication_edit(request, slug):
+	news = get_object_or_404(Publication, slug=slug)
+	if request.method == "POST":
+		form = EditFormPublication(request.POST, request.FILES, instance=news)
+		if form.is_valid():
+			news.save()
+			image = form.instance
+			return redirect('publication_list')
+	else:
+		form = EditFormPublication(instance=news)
+	return render(request, 'berita/forms.html', {'form': form})
+
+def publication_delete(request, slug): 
+		context ={} 
+		news = get_object_or_404(Publication, slug=slug)
+		if request.method =="POST": 
+				news.delete() 
+				return redirect('publication_list')
+		return render(request,'home/delete_confirm.html', context) 
+
+

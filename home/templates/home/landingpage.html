@@ -6,7 +6,18 @@
 
 
 {% block content %}
-<main id="main">  
+<main id="main">   
+
+  {% if messages %}
+  <!-- ======= Portfolio Section ======= -->
+  <section id="carousel" class="align-items-center" data-aos="fade-up" data-aos-delay="150">
+      {% for message in messages %}
+      <div class="container alert alert-primary" role="alert">
+        {{ message }}
+      {% endfor %}
+      </div>
+  </section><!-- End Portfolio Section -->
+  {% endif %}
 <!-- carousel -->
   <section id="carousel" class="align-items-center" data-aos="fade-up" data-aos-delay="150">
     <div class="carousel slide container position-relative" id="main-carousel" data-ride="carousel" data-aos-delay="500">
@@ -150,6 +161,8 @@
               <div class="form-group">
                 {{ form.message }}
               </div>
+              <script src='https://www.google.com/recaptcha/api.js'></script>
+              <div class="g-recaptcha" data-sitekey="6LfVFTcaAAAAAIXcQq3wpnj7f-ixayR1J5MmRbsE"></div>
               <div class="text-center"><button type="submit" class="btn btn-primary">Kirim Pesan</button></div>
             </form>
           </div>

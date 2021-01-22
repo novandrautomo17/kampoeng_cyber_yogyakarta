@@ -15,6 +15,11 @@
             <li><a href="{% url 'publication' %}">Publikasi</a></li>
             <li>{{ detail.title }}</li>
           </ol>
+          {% if user.is_authenticated %}
+          <ol>
+            <li><a href="{% url 'publication-edit' slug=detail.slug %}">Edit</a> | <a href="{% url 'publication-delete' slug=detail.slug %}">Hapus</a></li>
+          </ol>
+          {% endif %}          
         </div>
       </div>
     </section><!-- End Breadcrumbs Section -->

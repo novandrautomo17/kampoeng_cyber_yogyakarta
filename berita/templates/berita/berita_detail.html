@@ -18,7 +18,7 @@
           </ol>
           {% if user.is_authenticated %}
           <ol>
-            <li><a href="{% url 'news-edit' slug=detail.slug %}">Edit {{detail.title}}</a> | <a href="{% url 'news-delete' slug=detail.slug %}">Hapus {{detail.title}}</a></li>
+            <li><a href="{% url 'news-edit' slug=detail.slug %}">Edit</a> | <a href="{% url 'news-delete' slug=detail.slug %}">Hapus</a></li>
           </ol>
           {% endif %}
         </div>

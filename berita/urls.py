@@ -10,5 +10,7 @@ urlpatterns = [
 
     path('publikasi-kampoeng-cyber-yogyakarta/', views.publication_list, name='publication'),
     path('publikasi-kampoeng-cyber-yogyakarta/<slug:slug>/', views.publication_detail, name='publication-detail'),
-
+    path('tambah-publikasi-kampoeng-cyber-yogyakarta/', views.add_publication, name='publication-add'),
+    path('edit-publikasi-kampoeng-cyber-yogyakarta/<slug:slug>/', views.publication_edit, name='publication-edit'),
+    path('hapus-publikasi-kampoeng-cyber-yogyakarta/<slug:slug>/', views.publication_delete, name='publication-delete'),
 ]

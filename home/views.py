@@ -1,9 +1,11 @@
+import requests
 from django.shortcuts import render, redirect, get_object_or_404
 from django.conf import settings
 from .models import Carousel, About, History
 from berita.models import News
 from gallery.models import Gallery
 from .forms import ContactForm, CarouselForm, AboutForm, HistoryForm
+from django.contrib import messages
 from django.core.mail import EmailMessage, BadHeaderError #check email badheader on the contactform
 
 def landingpage(request):
@@ -18,11 +20,21 @@ def landingpage(request):
 	else:
 		form = ContactForm(request.POST)
 		if form.is_valid():
+			''' Begin reCAPTCHA validation '''
+			recaptcha_response = request.POST.get('g-recaptcha-response')
+			data = {
+			    'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+			    'response': recaptcha_response
+			}
+			r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+			result = r.json()
+			''' End reCAPTCHA validation '''			
 			post = form.save()
 			post.save()
 			subject = post.subject
 			email = post.email
 			message = f"Nama: {post.name} \n \nPesan: {post.message}"
+			messages.success(request, 'Pesan anda telah kami terina, terima kasih telah menghubungi kami.')
 			try:
 				mail=EmailMessage(
 					subject = subject,

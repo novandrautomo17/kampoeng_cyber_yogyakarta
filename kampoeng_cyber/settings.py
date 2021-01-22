@@ -127,6 +127,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+GOOGLE_RECAPTCHA_SECRET_KEY = config['GOOGLE_RECAPTCHA_SECRET_KEY']
 
 #email config
 EMAIL_HOST = 'smtp.zoho.com'
