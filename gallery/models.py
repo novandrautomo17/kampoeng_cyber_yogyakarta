@@ -10,7 +10,9 @@ class Gallery(models.Model):
 	title = models.CharField(max_length=200, blank=False, null=True, verbose_name='Judul')
 	image = models.ImageField(upload_to='uploads/gallery', null=True, blank=False)
 	caption = models.TextField(blank=False, null=True)
-	date_posted = models.DateTimeField(auto_now_add=False, auto_now=True)
+	date_posted = models.DateTimeField(auto_now_add=True, auto_now=False)
+	last_updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
 
 	class Meta:
 		verbose_name_plural = "Galeri"

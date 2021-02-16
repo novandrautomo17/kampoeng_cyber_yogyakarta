@@ -14,7 +14,7 @@
           <ol>
             <li><a href="{% url 'landingpage' %}">Kampoeng Cyber Yogyakarta</a></li>
             <li><a href="{% url 'gallery' %}">Kegiatan</a></li>
-            <li>{{ gallery_detail.title }}</li>
+            <li>{{ gallery_detail.title }}</li> 
           </ol>
           {% if user.is_authenticated %}
           <ol>
@@ -38,7 +38,9 @@
             <br>
           </div>
           <div class="col-lg-4">
-            <p>{{gallery_detail.caption}}</p>
+            <p>{{gallery_detail.caption}}</p> 
+            <small>Diposting pada: {{gallery_detail.date_posted|date:"M d, Y"}}</small><br />
+            <small>Terakhir update: {{gallery_detail.last_updated|date:"M d, Y"}}</small><br /><br />
           </div>
         </div>
 
